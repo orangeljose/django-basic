@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for task in tasks %}
+    <h1>{% if task.done %}✅{% else %}⏱{% endif %}{{ task.title}}</h1>
+    <div style="padding-left: 1em;">
+
+        <p>{{ task.description}}</p>
+        <p>Project: {{ task.project.name}}</p>
+        <button>
+            Delete
+        </button>
+        <button>
+            Done
+        </button>
+    </div>
+    {% endfor%}
+</body>
+</html>
+{% endblock %}

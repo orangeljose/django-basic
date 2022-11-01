@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Project: {{ project }}</h1>
+
+{% if tasks %}
+{% for task in tasks %}
+<div class="card">
+    <h1>{% if task.done %}✅{% else %}⏱{% endif %} {{task.title}}</h1>
+    <h2>{{task.description}}</h2>
+</div>
+{% endfor %}
+{% else %}
+<div class="card">
+    <h1>This project dont have any task to make yet, please add one!</h1>
+</div>
+{% endif %}
+{% endblock %}
